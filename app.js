@@ -1,7 +1,21 @@
 
-const isValidNumber = (n) => {
-    const regex = new RegExp('(^04[1]{1}[246]{1}|^04[2]{1}[4,6]{1})-[0-9]{7}');
-    return regex.test(n)
+// one euro is:
+let oneEuroIs = {
+    "JPY": 127.9, // japan yen
+    "USD": 1.2, // us dollar
+    "GBP": 0.8, // british pound
+}
+function fromDollarToYen(dollar){
+    let yen =  dollar/1.2 * oneEuroIs['JPY']
+    return parseFloat(yen.toFixed(2))
+}
+function fromEuroToDollar(euro){
+    return euro*oneEuroIs['USD']
 }
 
-module.exports = { isValidNumber };
+function fromYenToPound(yan){
+    let pound =  yan/oneEuroIs['JPY'] * oneEuroIs['GBP']
+    return parseFloat(pound.toFixed(2))
+}
+
+module.exports = { fromDollarToYen, fromEuroToDollar, fromYenToPound };

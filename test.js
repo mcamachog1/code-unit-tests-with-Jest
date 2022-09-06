@@ -1,65 +1,29 @@
+test("Un euro debe ser 1.2 dolares", function(){
+    //import the function from app.js
+    const { fromEuroToDollar } = require('./app.js')
 
-// My valid number format is 0424-8822350
+    // use the function like its suppoed to be used
+    const dollars = fromEuroToDollar(1)
 
-const { isValidNumber } = require('./app.js');
-
-test('El número 0424-8822350 es válido, retorna true', () => {
+    // if 1 euro are 1.206 dollars, then 3.5 euros should be (3.5 * 1.2)
+    const expected = 1.2; 
     
-    let aprobarNumero = isValidNumber("0424-8822350")
-    expect(aprobarNumero).toBe(true);
-});
+    // this is the comparison for the unit test
+     expect(fromEuroToDollar(1)).toBe(1.2); //1 euro are 1.2 dolares
+})
 
-test('El número 0414-8822350 es válido, retorna true', () => {
+test("Un dolar debe ser 106.58 yuanes", function(){
+    const { fromDollarToYen } = require('./app.js')
+    const dollars = fromDollarToYen(1)
+    const expected = 106.58; 
+
+     expect(dollars).toBe(expected); 
+})
+
+test("1000 yuanes deben ser 6.25 libras", function(){
+    const { fromYenToPound } = require('./app.js')
+    const yen = fromYenToPound(1000)
+    const expected = 6.25; 
     
-    let aprobarNumero = isValidNumber("0414-8822350")
-    expect(aprobarNumero).toBe(true);
-});
-
-test('El número 0416-8822350 es válido, retorna true', () => {
-    
-    let aprobarNumero = isValidNumber("0416-8822350")
-    expect(aprobarNumero).toBe(true);
-});
-
-test('El número 0412-8822350 es válido, retorna true', () => {
-    
-    let aprobarNumero = isValidNumber("0412-8822350")
-    expect(aprobarNumero).toBe(true);
-});
-
-test('El número 0426-8822350 es válido, retorna true', () => {
-    
-    let aprobarNumero = isValidNumber("0426-8822350")
-    expect(aprobarNumero).toBe(true);
-});
-
-test('El número 04248822350 no es válido, la prueba devuelve false', () => {
-    
-    let aprobarNumero = isValidNumber("04248822350");
-    expect(aprobarNumero).toBe(false);
-});
-
-test('El número (0424)8822350 no es válido, la prueba devuelve false', () => {
-    let aprobarNumero = isValidNumber("(0424)8822350");
-    expect(aprobarNumero).toBe(false);
-});
-
-test('El número 424-8822350 no es válido, la prueba devuelve false', () => {
-    let aprobarNumero = isValidNumber("424-8822350");
-    expect(aprobarNumero).toBe(false);
-});
-
-test('El número 0424-882235 no es válido, la prueba devuelve false', () => {
-    let aprobarNumero = isValidNumber("0424-882235");
-    expect(aprobarNumero).toBe(false);
-});
-
-test('El número +58 424 8822350 no es válido, la prueba devuelve false', () => {
-    let aprobarNumero = isValidNumber("+58 424 882235");
-    expect(aprobarNumero).toBe(false);
-});
-
-test('El número 0436-8822350 no es válido, la prueba devuelve false', () => {
-    let aprobarNumero = isValidNumber("0436-882235");
-    expect(aprobarNumero).toBe(false);
-});
+     expect(yen).toBe(expected); 
+})
