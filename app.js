@@ -6,7 +6,7 @@ let oneEuroIs = {
     "GBP": 0.8, // british pound
 }
 function fromDollarToYen(dollar){
-    let yen =  dollar/1.2 * oneEuroIs['JPY']
+    let yen =  dollar/oneEuroIs['USD'] * oneEuroIs['JPY']
     return parseFloat(yen.toFixed(2))
 }
 function fromEuroToDollar(euro){
